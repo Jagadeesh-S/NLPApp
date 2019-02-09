@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "673072546348",
+    "firebase_url": "https://nlpfirebaseproject.firebaseio.com",
+    "project_id": "nlpfirebaseproject",
+    "storage_bucket": "nlpfirebaseproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:673072546348:android:24ef40653f98a4eb",
+        "android_client_info": {
+          "package_name": "com.jagadeesh.jagadeesh.nlp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "673072546348-fp81mpa4uf23bf1fknuhia8bg8d73i1h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jagadeesh.jagadeesh.nlp",
+            "certificate_hash": "5bbc5dd6f1ea58d94d8a94a73fad0715f6b00394"
+          }
+        },
+        {
+          "client_id": "673072546348-g1q0tq32utp4qvpl83isjj8i1j58o0pe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVlZKXRqxh_OyYOcxdV9X15khayT9iGN4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "673072546348-g1q0tq32utp4qvpl83isjj8i1j58o0pe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
