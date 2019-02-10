@@ -1,6 +1,7 @@
 package com.jagadeesh.jagadeesh.nlp.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.jagadeesh.jagadeesh.nlp.MessageActivity;
 import com.jagadeesh.jagadeesh.nlp.R;
 import com.jagadeesh.jagadeesh.nlp.User;
 
@@ -35,7 +37,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        User user = mUsers.get(position);
+        final User user = mUsers.get(position);
         holder.username.setText(user.getUsername());
         if(user.getImageURL().equals("default")){
             holder.profile_image.setImageResource(R.mipmap.ic_launcher);
@@ -43,6 +45,14 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
         else{
             Glide.with(mContext).load(user.getImageURL()).into(holder.profile_image);
         }
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext,MessageActivity.class);
+                intent.putExtra("userid",user.getId());
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     @Override
