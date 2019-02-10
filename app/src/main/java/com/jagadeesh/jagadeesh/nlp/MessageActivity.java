@@ -2,6 +2,8 @@ package com.jagadeesh.jagadeesh.nlp;
 
 import android.content.Intent;
 import android.media.Image;
+import android.os.AsyncTask;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,6 +17,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.google.cloud.translate.Translate;
+import com.google.cloud.translate.TranslateOptions;
+import com.google.cloud.translate.Translation;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -27,6 +32,7 @@ import com.jagadeesh.jagadeesh.nlp.Adapter.MessageAdapter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -46,6 +52,8 @@ public class MessageActivity extends AppCompatActivity {
     List<Chat> mchat;
 
     RecyclerView recyclerView;
+
+   // String ttext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,12 +89,16 @@ public class MessageActivity extends AppCompatActivity {
         intent = getIntent();
         final String userid = intent.getStringExtra("userid");
 
+         //   final TextView textView = (TextView) findViewById(R.id.textview);
+
+
         btn_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String msg = txt_send.getText().toString();
-                if(!msg.equals("")){
-                    sendMessage(fuser.getUid(),userid,msg);
+               String  msgT = getT(msg);
+                if(!msgT.equals("")){
+                    sendMessage(fuser.getUid(),userid,msgT);
                 }
                 else{
                     Toast.makeText(MessageActivity.this,"Hey,you can't send empty message",Toast.LENGTH_SHORT).show();
@@ -128,6 +140,7 @@ public class MessageActivity extends AppCompatActivity {
 
     }
 
+
     private void sendMessage(String sender,String receiver,String message){
 
         DatabaseReference  reference = FirebaseDatabase.getInstance().getReference();
@@ -166,5 +179,26 @@ public class MessageActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private String getT(String msg){
+      //  final TextView textView = (TextView) findViewById(R.id.textview);
+
+        GoogleTranslate googleTranslate = new GoogleTranslate();
+
+
+        String result = "";
+        try {
+            result += googleTranslate.execute(msg,"te").get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+
+       // textView.setText(result );
+
+        return result;
     }
 }

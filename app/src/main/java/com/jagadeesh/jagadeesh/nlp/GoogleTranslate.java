@@ -42,7 +42,8 @@ public class GoogleTranslate extends AsyncTask<String, Void, String> {
      * Your Google API Key here
      */
 
-     private final String API_KEY = "AIzaSyBeBQFH5PHs28F3JOWvl_h6JoDONdpTidQ";
+     //private final String API_KEY = "AIzaSyBeBQFH5PHs28F3JOWvl_h6JoDONdpTidQ";
+     private final String API_KEY ="AIzaSyC_kN2b58WJ9T6j576NA0RzDDAPGj1xgVw";
 
     /*
      * Performing the translation in background process
@@ -61,13 +62,13 @@ public class GoogleTranslate extends AsyncTask<String, Void, String> {
          * The source language to be translated
          */
 
-        final String SOURCE_LANGUAGE = params[1];
+        //final String SOURCE_LANGUAGE = params[1];
 
         /*
          * The wished language to be translated to
          */
 
-        final String TARGET_LANGUAGE = params[2];
+        final String TARGET_LANGUAGE = params[1];
 
         try {
 
@@ -97,7 +98,7 @@ public class GoogleTranslate extends AsyncTask<String, Void, String> {
              * This line set the source language of the translated text
              */
 
-            listToTranslate.setSource(SOURCE_LANGUAGE);
+           // listToTranslate.setSource(SOURCE_LANGUAGE);
 
             /*
              * Executing the translation and saving the response in the response object
