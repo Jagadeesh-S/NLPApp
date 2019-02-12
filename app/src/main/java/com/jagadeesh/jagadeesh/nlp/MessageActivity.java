@@ -96,9 +96,9 @@ public class MessageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String msg = txt_send.getText().toString();
-               String  msgT = getT(msg);
-                if(!msgT.equals("")){
-                    sendMessage(fuser.getUid(),userid,msgT);
+              // String  msgT = getT(msg);
+                if(!msg.equals("")){
+                    sendMessage(fuser.getUid(),userid,msg);
                 }
                 else{
                     Toast.makeText(MessageActivity.this,"Hey,you can't send empty message",Toast.LENGTH_SHORT).show();
