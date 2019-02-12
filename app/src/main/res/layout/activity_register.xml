@@ -9,6 +9,7 @@
 
     <include layout="@layout/bar_layout"
         android:id="@+id/toolbar">
+
     </include>
 
     <LinearLayout
@@ -61,10 +62,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:background="@color/colorAccent"
+            android:background="@color/colorPrimaryDark"
             android:text="REGISTER"
             android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat" />
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textColor="@color/cardview_light_background" />
     </LinearLayout>
 
 </RelativeLayout>
