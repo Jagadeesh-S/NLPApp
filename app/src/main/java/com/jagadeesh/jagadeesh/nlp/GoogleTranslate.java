@@ -13,7 +13,7 @@ public class GoogleTranslate extends AsyncTask<String, Void, String> {
 
 
      //private final String API_KEY = "AIzaSyBeBQFH5PHs28F3JOWvl_h6JoDONdpTidQ";
-     private final String API_KEY ="AIzaSyC_kN2b58WJ9T6j576NA0RzDDAPGj1xgVw";
+     private final String API_KEY ="AIzaSyBcNt-1fLzrweshn5glNTF94CeJpfzqqCs";
 
 
 

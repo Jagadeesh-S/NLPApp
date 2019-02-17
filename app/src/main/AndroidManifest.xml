@@ -23,7 +23,11 @@
         <activity
             android:name=".LoginActivity"
             android:parentActivityName=".StartActivity" />
-        <activity android:name=".MessageActivity"></activity>
+        <activity android:name=".MessageActivity" />
+        <activity android:name=".LanguageActivity"
+            android:parentActivityName=".MainActivity">
+
+        </activity>
     </application>
 
 </manifest>

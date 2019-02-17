@@ -6,6 +6,8 @@ public class Chat {
     private String sender;
     private String receiver;
 
+    //public String lang ="te" ;
+
     public Chat(){}
     public Chat(String sender, String receiver, String message) {
         this.sender = sender;
@@ -34,7 +36,7 @@ public class Chat {
     public String getMessage() {
         return message;
     }
-    public String getT(){
+    public String getT(String l){
         //  final TextView textView = (TextView) findViewById(R.id.textview);
 
         GoogleTranslate googleTranslate = new GoogleTranslate();
@@ -42,7 +44,7 @@ public class Chat {
 
         String result = "";
         try {
-            result += googleTranslate.execute(message,"te").get();
+            result += googleTranslate.execute(message,l).get();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {

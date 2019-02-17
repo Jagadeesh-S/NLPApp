@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.jagadeesh.jagadeesh.nlp.Chat;
+import com.jagadeesh.jagadeesh.nlp.LanguageActivity;
 import com.jagadeesh.jagadeesh.nlp.MessageActivity;
 import com.jagadeesh.jagadeesh.nlp.R;
 import com.jagadeesh.jagadeesh.nlp.User;
@@ -29,7 +30,9 @@ public class MessageAdapter extends  RecyclerView.Adapter<MessageAdapter.ViewHol
     private List<Chat> mChat;
 
     private String imageURL;
+   // private String lang ;
 
+    Chat chat ;
     FirebaseUser fuser;
 
 public MessageAdapter(Context mContext, List<Chat> mChat,String imageURL) {
@@ -59,7 +62,7 @@ public void onBindViewHolder(@NonNull MessageAdapter.ViewHolder holder, int posi
 
     Chat chat = mChat.get(position);
     if(!mChat.get(position).getSender().equals(fuser.getUid()))
-            holder.show_message.setText(chat.getT());
+            holder.show_message.setText(chat.getT(LanguageActivity.lang));
     else
         holder.show_message.setText(chat.getMessage());
 

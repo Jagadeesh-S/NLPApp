@@ -45,6 +45,7 @@ public class MessageActivity extends AppCompatActivity {
     DatabaseReference reference;
     Intent intent;
 
+    String userid;
     ImageButton btn_send;
     EditText txt_send;
 
@@ -87,7 +88,7 @@ public class MessageActivity extends AppCompatActivity {
         profile_image = findViewById(R.id.profile_image);
         username = findViewById(R.id.username);
         intent = getIntent();
-        final String userid = intent.getStringExtra("userid");
+       userid = intent.getStringExtra("userid");
 
          //   final TextView textView = (TextView) findViewById(R.id.textview);
 
@@ -150,6 +151,25 @@ public class MessageActivity extends AppCompatActivity {
         hashMap.put("message",message);
 
         reference.child("Chats").push().setValue(hashMap);
+
+        final DatabaseReference chatRef = FirebaseDatabase.getInstance().getReference("Chatlist")
+                .child(fuser.getUid())
+                .child(userid);
+
+        chatRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(!dataSnapshot.exists()){
+                    chatRef.child("id").setValue(userid);
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
     }
 

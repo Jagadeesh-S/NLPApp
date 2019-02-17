@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     CircleImageView profile_image;
     TextView username;
 
+    Chat chat;
     FirebaseUser firebaseUser;
     DatabaseReference databaseReference;
    // String result;
@@ -107,6 +108,9 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()){
+            case R.id.lang:
+                startActivity(new Intent(MainActivity.this,LanguageActivity.class));
+                 return true;
             case R.id.logout:
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(MainActivity.this,StartActivity.class));
